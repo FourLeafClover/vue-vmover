@@ -1,0 +1,48 @@
+{
+  "name": "VMover",
+  "version": "1.0.0",
+  "description": "V电影Msite版本",
+  "main": "index.js",
+  "scripts": {
+    "prd": "webpack --config ./build/webpack.prd.js",
+    "qa": "webpack --config ./build/webpack.qa.js",
+    "start": "webpack-dev-server --open --config ./build/webpack.dev.js",
+    "d_prd": "webpack --config ./build/webpack.prd.js && gulp --env prd"
+  },
+  "author": "Frank Zhang",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.18.0",
+    "babel-helper-vue-jsx-merge-props": "^2.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-plugin-transform-vue-jsx": "^3.1.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.5",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "gulp": "^3.9.1",
+    "gulp-ssh": "^0.6.2",
+    "html-webpack-plugin": "^2.30.1",
+    "minimist": "^1.2.0",
+    "style-loader": "^0.18.2",
+    "vue": "^2.4.2",
+    "vue-loader": "^13.0.4",
+    "vue-router": "^2.7.0",
+    "vue-template-compiler": "^2.4.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-server": "^2.7.1",
+    "webpack-merge": "^4.1.0",
+    "webpack-sftp-client": "^1.2.1"
+  },
+  "dependencies": {
+    "axios": "^0.17.0",
+    "better-scroll": "^1.8.0",
+    "vue": "^2.4.2",
+    "vue-router": "^2.7.0"
+  }
+}
