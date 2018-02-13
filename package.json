@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "prd": "webpack --config ./build/webpack.prd.js",
-    "qa": "webpack --config ./build/webpack.qa.js",
     "start": "webpack-dev-server --open --config ./build/webpack.dev.js",
     "d_prd": "webpack --config ./build/webpack.prd.js && gulp --env prd"
   },

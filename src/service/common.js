@@ -72,7 +72,7 @@ let setPageInfo = (info) => {
         /* 基本处理,可以解决非微信端问题 */
         let meta = document.getElementsByTagName('meta');
         if (info.title) {
-            document.title = info.title + "|紫荆谷";
+            document.title = info.title + "|V电影";
             meta["sharecontent"].setAttribute("data-msg-title", info.title);
             meta["sharecontent"].setAttribute("data-line-title", info.title);
         }
