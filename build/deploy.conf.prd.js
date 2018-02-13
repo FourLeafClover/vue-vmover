@@ -8,6 +8,6 @@ module.exports = {
     }],
     remoteDir: `/usr/local/nginx/html`, //项目存放路径
     commands: [
-        `rm -rf /usr/local/nginx/html` //拷贝之前执行命令,譬如我的发版之前先删掉原因页面包
+        `rm -rf /usr/local/nginx/html` //拷贝之前执行命令
     ]
 };
