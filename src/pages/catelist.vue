@@ -2,7 +2,7 @@
   <div class="main" ref="wrapper">
     <div class="list">
        <div class="item" v-for="video in videos" :key="video.postid">
-           <router-link :to="{ path: '/video/detail',query:{ postid:video.postid } }">
+        <router-link :to="{ name:'videodetail',params:{ postid:video.postid }}">
                <img style="width:100%" :src="video.image" />
            </router-link> 
            <div class="line1">
@@ -31,7 +31,7 @@ export default {
     };
   },
   created() {
-    this.curCateId = this.$route.query.id;
+    this.curCateId = this.$route.params.id;
     this.getPageData();
     this.initScroll();
   },
@@ -80,11 +80,11 @@ export default {
   activated() {
     this.initScroll();
     // 如果Id号切换就重新加载
-    if (this.$route.query.id != this.curCateId) {
+    if (this.$route.params.id != this.curCateId) {
       this.videos = [];
       this.curPage = 1;
       this.isCanLoad = true;
-      this.curCateId = this.$route.query.id;
+      this.curCateId = this.$route.params.id;
       this.getPageData();
     }
   },
@@ -94,10 +94,6 @@ export default {
 };
 </script>
 <style scoped>
-.main {
-  height: 100%;
-}
-
 .item {
   position: relative;
   min-width: 250px;

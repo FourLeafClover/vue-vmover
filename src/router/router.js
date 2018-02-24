@@ -18,16 +18,16 @@ const routers = [{
     name: 'keyword',
     component: keyword
 }, {
-    path: '/search',
+    path: '/search/:keyword',
     name: 'search',
     component: search
 }, {
-    path: '/cate/videos',
+    path: '/cate/videos/:id',
     name: 'catevideolist',
     component: catelist
 }, {
-    path: '/video/detail',
-    name: 'video',
+    path: '/video/detail/:postid',
+    name: 'videodetail',
     component: videodetail
 }]
 

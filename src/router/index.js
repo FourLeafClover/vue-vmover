@@ -4,7 +4,9 @@ import Routers from './router'
 Vue.use(Router)
 
 let router = new Router({
-    routes: Routers
+    routes: Routers,
+    mode: process.env.VUE_MODE,
+    base: process.env.VUE_BASE
 });
 
 export default router

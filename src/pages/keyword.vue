@@ -70,8 +70,8 @@ export default {
     },
     gotosearch(key) {
       this.$router.push({
-        path: "search",
-        query: {
+        name: "search",
+        params: {
           keyword: key == undefined ? this.keyword : key
         }
       });

@@ -7,7 +7,7 @@
              #{{cate.catename}}#
          </div>
          <div class="cover2" @click="gotoPage(cate.cateid)"></div>
-         <router-link :to="{ path:'/cate/videos',query:{id:cate.cateid} }">       
+         <router-link :to="{ name:'catevideolist',params:{id:cate.cateid} }">       
          </router-link>
      </div>
      <div style="height:50px;width:100%;float:left;background-color:black"></div>
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     gotoPage(cateid) {
-      this.$router.push({ path: "/cate/videos", query: { id: cateid } });
+      this.$router.push({ name: "catevideolist", params: { id: cateid } });
     }
   },
   activated() {

@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div ref="content" style="height:100%">
+    <div ref="content">
       <router-link to="/keyword">
         <div class="search">
           <div class="jump"><img style="height: 20px;" src="../assets/img/search.png" />&nbsp;搜索精彩片段</div>
@@ -9,7 +9,7 @@
       <div v-if="banners.length>0">
         <slidebox :loop='loop' :autoPlay='autoPlay'>
           <div class="slider-item" style="z-index:99" v-for="item in banners" :key="item.postId">
-            <router-link :to="{ path:'/video/detail',query:{ postid:item.postId }}">
+            <router-link :to="{ name:'videodetail',params:{ postid:item.postId }}">
               <img :src="item.image" style="width:100%;" />
             </router-link>
           </div>
@@ -20,7 +20,7 @@
       </a>
       <div class="list" ref="wrapper">
         <div class="item" v-for="video in videos" :key="video.postid">
-          <router-link :to="{ path: 'video/detail',query:{ postid:video.postid } }">
+          <router-link :to="{ name:'videodetail',params:{ postid:video.postid }}">
             <img style="width:100%" :src="video.image" />
           </router-link>
           <div class="line1">
