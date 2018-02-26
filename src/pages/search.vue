@@ -91,9 +91,6 @@
   };
 </script>
 <style scoped>
-  .main {
-    height: 100%;
-  }
 
   .item {
     position: relative;

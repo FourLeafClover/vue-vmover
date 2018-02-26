@@ -156,3 +156,15 @@ label {
 .clearfix:after {
 	clear: both;
 }
+
+.main {
+	min-height: 100vh;
+	max-width: 62.5vh;
+	margin: 0 auto;
+}
+
+.mobilefixed {
+	max-width: 62.5vh;
+	left: 50% !important;
+	transform: translateX(-50%) !important;
+}

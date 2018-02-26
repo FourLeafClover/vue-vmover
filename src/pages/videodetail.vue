@@ -1,5 +1,5 @@
 <template>
-  <div class="main" v-if="detail!=null" :style="{'min-height':height+'px'}">
+  <div class="main" style="position:relative" v-if="detail!=null" :style="{'min-height':height+'px'}">
     <div class="video" v-if="detail.content.video.length>0">
       <video webkit-playsinline playsinline :src="detail.content.video[0].progressive[detail.content.video[0].progressive.length-1].qiniu_url"
         autoplay="autoplay" controls>
@@ -14,11 +14,11 @@
     <p class="intro">
       {{detail.intro}}
     </p>
-    <div style="height:60px;"></div>
+    <div style="height:18vw;"></div>
     <div @click="gotoHomePage()" class="home">
       <img src="../assets/img/home.png" />
     </div>
-    <a style="display:block;position:fixed;bottom:0;left:0" href='http://a.app.qq.com/o/simple.jsp?pkgname=vmovier.com.activity&channel=0002160650432d595942&fromcase=60001'>
+    <a style="display:block;position:fixed;bottom:0;left:0" class="mobilefixed" href='http://a.app.qq.com/o/simple.jsp?pkgname=vmovier.com.activity&channel=0002160650432d595942&fromcase=60001'>
       <img style="width:100%;" src="../assets/img/app.jpg" />
     </a>
   </div>
@@ -96,13 +96,12 @@
   }
 
   .home {
-    position: fixed;
+    position: absolute;
     right: 10px;
     top: 10px;
   }
 
   .home img {
-    height: 30px;
-    width: 30px;
+    width: 50px;
   }
 </style>
