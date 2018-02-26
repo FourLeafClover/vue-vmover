@@ -18,7 +18,7 @@
     <div @click="gotoHomePage()" class="home">
       <img src="../assets/img/home.png" />
     </div>
-    <a style="display:block;position:fixed;bottom:0;left:0" class="mobilefixed" href='http://a.app.qq.com/o/simple.jsp?pkgname=vmovier.com.activity&channel=0002160650432d595942&fromcase=60001'>
+    <a style="display:block;position:fixed;bottom:0;left:0;width:100%;" class="mobilefixed" href='http://a.app.qq.com/o/simple.jsp?pkgname=vmovier.com.activity&channel=0002160650432d595942&fromcase=60001'>
       <img style="width:100%;" src="../assets/img/app.jpg" />
     </a>
   </div>
