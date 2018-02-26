@@ -168,5 +168,6 @@
     text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     overflow: hidden;
+    width: 100%;
   }
 </style>

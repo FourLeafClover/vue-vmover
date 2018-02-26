@@ -91,7 +91,6 @@
   };
 </script>
 <style scoped>
-
   .item {
     position: relative;
     min-width: 250px;
@@ -119,5 +118,6 @@
     text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     overflow: hidden;
+    width: 100%;
   }
 </style>
