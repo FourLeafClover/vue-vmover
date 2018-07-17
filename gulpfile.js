@@ -1,41 +1,44 @@
-var gulp = require('gulp');
-var GulpSSH = require('gulp-ssh');
-var minimist = require('minimist');
+'use strict'
+var gulp = require('gulp')
+var GulpSSH = require('gulp-ssh')
 
-//载入配置文件
-var knownOptions = {
-    string: 'env',
-    default: {
-        env: ""
-    }
-};
-var options = minimist(process.argv.slice(2), knownOptions);
-var config = require(`./build/deploy.conf.${options.env}.js`);
+let config = {
+  version: '1.0.0',
+  ssh: {
+    host: '47.97.172.44', // 服务器ip地址
+    port: 22, // 端口号
+    username: 'root', // 用户名
+    password: 'xxxxxx' // 密码
+  },
+  remoteDir: `/usr/local/apache-tomcat-9.0.5/webapps/movie`, // 项目存放路径
+  commands: [
+    `rm -rf /usr/local/apache-tomcat-9.0.5/webapps/movie` // 拷贝之前执行命令
+  ]
+}
 
-var ssConfighList = config.ssh;
-var deployTasks = [];
-ssConfighList.forEach(ssh => {
-    deployTasks.push("deployFileTask" + ssh.host);
-});
-gulp.task('default', deployTasks);
-ssConfighList.forEach(sshConfig => {
-    var gulpSSH = new GulpSSH({
-        ignoreErrors: false,
-        sshConfig: sshConfig
-    });
-    let deployFileTaskID = "deployFileTask" + sshConfig.host;
-    let execSSHTaskID = 'execSSHTask' + sshConfig.host;
-    gulp.task(deployFileTaskID, [execSSHTaskID], () => {
-        console.log(`正在上传文件到${sshConfig.host}服务器`);
-        return gulp
-            .src(['./dist/**'])
-            .pipe(gulpSSH.dest(config.remoteDir));
-    });
-    gulp.task(execSSHTaskID, () => {
-        console.log(`正在删除${sshConfig.host}服务器文件`);
-        return gulpSSH.shell(config.commands, {
-                filePath: `commands.${sshConfig.serverID}.log`
-            })
-            .pipe(gulp.dest('logs'));
-    });
-});
+var gulpSSH = new GulpSSH({
+  ignoreErrors: false,
+  sshConfig: config.ssh
+})
+
+gulp.task('default', ['deployFile'], function () {})
+
+/**
+ * 上传文件
+ */
+gulp.task('deployFile', ['execSSH'], () => {
+  return gulp
+    .src(['./dist/**'])
+    .pipe(gulpSSH.dest(config.remoteDir))
+})
+
+/**
+ * 执行命令
+ */
+gulp.task('execSSH', () => {
+  console.log('删除服务器上现有文件...')
+  return gulpSSH.shell(config.commands, {
+    filePath: 'commands.log'
+  })
+    .pipe(gulp.dest('logs'))
+})

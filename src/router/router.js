@@ -1,34 +1,83 @@
-import index from '@/pages/index'
-import cate from "@/pages/cate"
-import videodetail from "@/pages/videodetail"
-import catelist from "@/pages/catelist"
-import keyword from "@/pages/keyword"
-import search from "@/pages/search"
+let configs = [{
+  path: '/',
+  name: 'home',
+  component: () =>
+    import('@/views/Home.vue'),
+  meta: {
+    needAuth: false,
+    index: 0,
+    cache: true,
+    topBarBottom: 60
+  }
+}, {
+  path: '/detail/:id',
+  name: 'detail',
+  component: () =>
+    import('@/views/Detail.vue'),
+  meta: {
+    needAuth: false,
+    index: 10,
+    cache: false,
+    topBarBottom: 10
+  }
+}, {
+  path: '/cates',
+  name: 'cates',
+  component: () =>
+    import('@/views/Cate.vue'),
+  meta: {
+    needAuth: false,
+    index: 0,
+    cache: true,
+    topBarBottom: 60
+  }
+}, {
+  path: '/cate/:cateid',
+  name: 'catedetail',
+  component: () =>
+    import('@/views/CateDetail.vue'),
+  meta: {
+    needAuth: false,
+    index: 5,
+    cache: true,
+    topBarBottom: 10
+  }
+}, {
+  path: '/search',
+  name: 'search',
+  component: () =>
+      import('@/views/Search.vue'),
+  meta: {
+    needAuth: false,
+    index: 5,
+    cache: true,
+    topBarBottom: 10
+  }
+},
+{
+  path: '/my',
+  name: 'about',
+  component: () =>
+        import('@/views/About.vue'),
+  meta: {
+    needAuth: false,
+    index: 0,
+    cache: true,
+    topBarBottom: 60
+  }
+},
+{
+  path: '/history',
+  name: 'viewhistory',
+  component: () =>
+        import('@/views/ViewHistory.vue'),
+  meta: {
+    needAuth: false,
+    index: 5,
+    cache: true,
+    topBarBottom: 10
+  }
+}
+]
 
-const routers = [{
-    path: '/',
-    name: 'index',
-    component: index
-}, {
-    path: '/cate',
-    name: 'cate',
-    component: cate
-}, {
-    path: '/keyword',
-    name: 'keyword',
-    component: keyword
-}, {
-    path: '/search/:keyword',
-    name: 'search',
-    component: search
-}, {
-    path: '/cate/videos/:id',
-    name: 'catevideolist',
-    component: catelist
-}, {
-    path: '/video/detail/:postid',
-    name: 'videodetail',
-    component: videodetail
-}]
-
-export default routers
+export default configs
